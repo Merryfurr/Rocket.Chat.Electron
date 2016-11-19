@@ -3,6 +3,7 @@
 // It doesn't have any windows which you can see on screen, but we can open
 // window from here.
 
+import os from 'os';
 import { app, BrowserWindow, ipcMain } from 'electron';
 import devHelper from './vendor/electron_boilerplate/dev_helper';
 import windowStateKeeper from './vendor/electron_boilerplate/window_state';
@@ -13,6 +14,10 @@ const toaster = new Toaster();
 // Special module holding environment variables which you declared
 // in config/env_xxx.json file.
 import env from './env';
+
+/* serverside system idle integration */
+var ffi = require('ffi'),
+    idle = require('@paulcbetts/system-idle-time');
 
 var mainWindow;
 
@@ -112,11 +117,11 @@ app.on('ready', function () {
     });
 
 	if(useToaster) {
-		
+
 	    toaster.init(mainWindow);
 
 		ipcMain.on('notification-shim', (e, msg) => {
-        
+
 			mainWindow.webContents.executeJavaScript(`
 				require('electron').ipcRenderer.send('electron-toaster-message', {
 					title: '${msg.title}',
@@ -134,4 +139,10 @@ app.on('ready', function () {
 
 app.on('window-all-closed', function () {
     app.quit();
+});
+
+/* system idle time synchronous event process */
+ipcMain.on('getSystemIdleTime', function(event) {
+    /* why does this fire twice?!?!? */
+    event.returnValue = idle.getIdleTime();
 });
