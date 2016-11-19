@@ -43,12 +43,12 @@ var mainWindowState = windowStateKeeper('main', {
 
 // ==== Quick check to fetch Operating System and it's version ==>>
 // Add here any OS without native support for notifications to Toaster is used
-var useToaster = false;
+var useToaster = true;
 
 // Windows 7 or older
-if (os.platform() === 'win32' || os.platform() === 'win64') {
-    if (parseFloat(os.release()) < 6.2) useToaster = true;
-};
+//if (os.platform() === 'win32' || os.platform() === 'win64') {
+//    if (parseFloat(os.release()) < 6.2) useToaster = true;
+//};
 // =========================================================================>>
 
 app.on('ready', function () {

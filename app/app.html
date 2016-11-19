@@ -17,10 +17,6 @@
 		<ul id="serverList">
 		</ul>
 		<ul>
-			<li class="add-server">
-				<span>+</span>
-				<div class="tooltip">Add new server</div>
-			</li>
 		</ul>
 	</div>
 
@@ -28,21 +24,21 @@
 		<div class="wrapper">
 			<header>
 				<a class="logo">
-					<img src="images/logo.svg" />
+					<img src="images/StakktTestLogo.png" />
 				</a>
 			</header>
 			<form id="login-card" method="/">
 				<header>
-					<h2>Enter your server URL</h2>
+					<h2>Click connect to join!</h2>
 				</header>
 				<div class="fields">
 					<div class="input-text active">
-						<input type="text" name="host" placeholder="https://demo.rocket.chat" dir="auto">
+						<input type="hidden" name="host" placeholder="https://codenamestakkt.herokuapp.com" dir="auto">
 					</div>
 				</div>
 
 				<div id="invalidUrl" style="display:none;" class="alert alert-danger">
-					No valid server found at the URL
+					Cannot find server! (Is it down?)
 				</div>
 
 				<div class="alert alert-danger only-offline">Check your Internet connection!</div>
@@ -51,17 +47,6 @@
 					<input type="submit" data-loading-text="Connecting..." class="button primary login" value="Connect"></input>
 				</div>
 			</form>
-			<footer>
-				<div class="social">
-					<nav>
-						<a target="_system" class="button share twitter" href="https://twitter.com/RocketChatApp"><i class="icon-twitter"></i><span>Twitter</span></a>
-						<a target="_system" class="button share facebook" href="https://www.facebook.com/RocketChatApp"><i class="icon-facebook"></i><span>Facebook</span></a>
-						<a target="_system" class="button share google" href="https://plus.google.com/+RocketChatApp"><i class="icon-gplus"></i><span>Google Plus</span></a>
-						<a target="_system" class="button share github" href="https://github.com/RocketChat/Rocket.Chat"><i class="icon-github-circled"></i><span>Github</span></a>
-						<a target="_system" class="button share linkedin" href="https://www.linkedin.com/company/rocket-chat"><i class="icon-linkedin"></i><span>LinkedIn</span></a>
-					</nav>
-				</div>
-			</footer>
 		</div>
 	</section>
 
